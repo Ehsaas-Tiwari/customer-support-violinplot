@@ -10,10 +10,10 @@ np.random.seed(42)
 
 channels = ["Email", "Live Chat", "Phone Support", "Social Media"]
 
-email_times = np.random.normal(24, 6, 300)        # slower
-chat_times = np.random.normal(8, 2, 300)          # fastest
-phone_times = np.random.normal(15, 4, 300)        # medium
-social_times = np.random.normal(18, 5, 300)       # medium-high
+email_times = np.random.normal(24, 6, 300)
+chat_times = np.random.normal(8, 2, 300)
+phone_times = np.random.normal(15, 4, 300)
+social_times = np.random.normal(18, 5, 300)
 
 response_times = np.concatenate([
     email_times,
@@ -43,7 +43,7 @@ sns.set_context("talk")
 # ----------------------------
 # Create Violin Plot
 # ----------------------------
-plt.figure(figsize=(8, 8))  # For 512x512 with dpi=64
+plt.figure(figsize=(8, 8))  # 8 inches * 64 dpi = 512 pixels EXACT
 
 sns.violinplot(
     x="Support Channel",
@@ -56,14 +56,14 @@ sns.violinplot(
 # ----------------------------
 # Titles and Labels
 # ----------------------------
-plt.title("Customer Support Response Time Distribution\nBy Support Channel", fontsize=16)
-plt.xlabel("Support Channel", fontsize=12)
-plt.ylabel("Response Time (Hours)", fontsize=12)
+plt.title("Customer Support Response Time Distribution\nBy Support Channel")
+plt.xlabel("Support Channel")
+plt.ylabel("Response Time (Hours)")
 
 # ----------------------------
-# Save Chart (EXACT REQUIREMENT)
+# SAVE IMAGE (NO bbox_inches ALLOWED)
 # ----------------------------
-plt.savefig("chart.png", dpi=64, bbox_inches="tight")
+plt.savefig("chart.png", dpi=64)
 plt.close()
 
-print("chart.png generated successfully (512x512 pixels).")
+print("chart.png generated successfully at EXACT 512x512 pixels.")
